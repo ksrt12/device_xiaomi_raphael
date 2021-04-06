@@ -6,8 +6,6 @@
 
 BOARD_VENDOR := xiaomi
 
-BUILD_BROKEN_DUP_RULES := true
-
 DEVICE_PATH := device/xiaomi/raphael
 
 # Architecture
@@ -30,32 +28,6 @@ TARGET_USES_64_BIT_BINDER := true
 # Assert
 TARGET_OTA_ASSERT_DEVICE := raphael,raphaelin
 
-# Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := msmnile
-TARGET_NO_BOOTLOADER := true
-
-# Kernel
-BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xa90000 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=2048 firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7 androidboot.usbcontroller=a600000.dwc3
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-BOARD_KERNEL_PAGESIZE := 4096
-BOARD_KERNEL_TAGS_OFFSET := 0x00000100
-BOARD_KERNEL_SEPARATED_DTBO := true
-BOARD_RAMDISK_OFFSET := 0x01000000
-TARGET_KERNEL_ARCH := arm64
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-TARGET_KERNEL_CONFIG := raphael_defconfig
-TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_CLANG_PATH := /opt/qcom/SnapdragonLLVMARM
-TARGET_KERNEL_SOURCE := kernel/xiaomi/raphael
-endif
-
-# Platform
-FORCE_QCOM_DISPLAY_HAL_VARIANT := sm8150
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno640
-
 # APEX
 DEXPREOPT_GENERATE_APEX_IMAGE := true
 
@@ -73,6 +45,13 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
 TARGET_FWK_SUPPORTS_FULL_VALUEADDS := true
 TARGET_USE_QTI_BT_STACK := true
 
+# Bootloader
+TARGET_BOOTLOADER_BOARD_NAME := msmnile
+TARGET_NO_BOOTLOADER := true
+
+# Build
+BUILD_BROKEN_DUP_RULES := true
+
 # Camera
 TARGET_USES_QTI_CAMERA_DEVICE := true
 
@@ -80,11 +59,7 @@ TARGET_USES_QTI_CAMERA_DEVICE := true
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # Dex
-ifeq ($(HOST_OS),linux)
-  ifneq ($(TARGET_BUILD_VARIANT),eng)
-    WITH_DEXPREOPT ?= true
-  endif
-endif
+WITH_DEXPREOPT := true
 
 # Display
 TARGET_USES_HWC2 := true
@@ -110,6 +85,24 @@ DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_raphael
 TARGET_RECOVERY_DEVICE_MODULES := libinit_raphael
 
+# Kernel
+BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xa90000 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=2048 firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7 androidboot.usbcontroller=a600000.dwc3
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+BOARD_KERNEL_PAGESIZE := 4096
+BOARD_KERNEL_TAGS_OFFSET := 0x00000100
+BOARD_KERNEL_SEPARATED_DTBO := true
+BOARD_RAMDISK_OFFSET := 0x01000000
+TARGET_KERNEL_ARCH := arm64
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+TARGET_KERNEL_CONFIG := raphael_defconfig
+TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_CLANG_PATH := /opt/qcom/SnapdragonLLVMARM
+TARGET_KERNEL_SOURCE := kernel/xiaomi/raphael
+endif
+
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
@@ -124,6 +117,14 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 57453555712
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USES_MKE2FS := true
+
+# Platform
+TARGET_BOARD_PLATFORM := sm8150
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno640
+
+# Power
+TARGET_USES_INTERACTION_BOOST := true
+TARGET_TAP_TO_WAKE_NODE := "/dev/input/event3"
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
@@ -142,10 +143,6 @@ TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 # Sepolicy
 include device/qcom/sepolicy/SEPolicy.mk
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
-
-# Power
-TARGET_USES_INTERACTION_BOOST := true
-TARGET_TAP_TO_WAKE_NODE := "/dev/input/event3"
 
 # Treble
 BOARD_VNDK_VERSION := current
