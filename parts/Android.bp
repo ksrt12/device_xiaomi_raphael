@@ -1,0 +1,28 @@
+//
+// Copyright (C) 2017-2020 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+android_app {
+    name: "XiaomiParts",
+
+    srcs: ["src/**/*.java"],
+
+    certificate: "platform",
+    platform_apis: true,
+    privileged: true,
+
+    static_libs: [
+        "org.lineageos.settings.resources",
+        "vendor.xiaomi.hardware.displayfeature-V1.0-java",
+        "vendor.xiaomi.hardware.motor-V1.0-java",
+        "vendor.xiaomi.hardware.touchfeature-V1.0-java",
+    ],
+
+    resource_dirs: ["res"],
+
+    optimize: {
+        proguard_flags_files: ["proguard.flags"],
+    },
+}
