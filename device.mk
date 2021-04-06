@@ -59,7 +59,7 @@ PRODUCT_BOARD_PLATFORM := msmnile
 
 # Camera
 PRODUCT_PACKAGES += \
-    Snap
+    GCam
 
 # Device-specific settings
 PRODUCT_PACKAGES += \
