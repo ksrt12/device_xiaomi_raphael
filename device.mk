@@ -22,6 +22,7 @@ TARGET_SCREEN_WIDTH := 1080
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/../translations \
     $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-havoc
 
