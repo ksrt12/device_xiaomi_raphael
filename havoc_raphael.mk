@@ -23,6 +23,6 @@ PRODUCT_DEVICE := raphael
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_NAME := havoc_raphael
 
-BUILD_FINGERPRINT := "Xiaomi/raphaelin/raphaelin:9/PKQ1.181121.001/V10.3.3.0.PFKINXM:user/release-keys"
+BUILD_FINGERPRINT := "Xiaomi/raphael/raphael:10/QKQ1.190825.002/V12.0.3.0.QFKCNXM:user/release-keys"
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
