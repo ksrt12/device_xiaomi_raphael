@@ -41,6 +41,7 @@ PRODUCT_COPY_FILES += \
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
+    $(LOCAL_PATH)/../translations
     $(LOCAL_PATH)/overlay-syberia \
     $(LOCAL_PATH)/overlay-system
 
@@ -160,12 +161,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/component-overrides_qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/component-overrides.xml
 
 # Display
-TARGET_BOARD_PLATFORM := msmnile
-
 -include hardware/qcom-caf/sm8150/display/config/display-board.mk
 -include hardware/qcom-caf/sm8150/display/config/display-product.mk
-include hardware/qcom-caf/sm8150/display/display-commonsys-intf/config/display-interfaces-product.mk
-include hardware/qcom-caf/sm8150/display/display-commonsys-intf/config/display-product-system.mk
+include vendor/qcom/opensource/commonsys-intf/display/config/display-interfaces-product.mk
+include vendor/qcom/opensource/commonsys-intf/display/config/display-product-system.mk
 
 PRODUCT_PACKAGES += \
     libtinyxml
