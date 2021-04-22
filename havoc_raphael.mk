@@ -10,12 +10,11 @@ $(call inherit-product, device/xiaomi/raphael/device.mk)
 # Inherit some common Havoc stuff.
 $(call inherit-product, vendor/havoc/config/common_full_phone.mk)
 
-# Setup Gapps options
-IS_PHONE := true
-TARGET_BOOT_ANIMATION_RES := 1080
-TARGET_GAPPS_ARCH := arm64
-TARGET_INCLUDE_STOCK_ARCORE := true
-TARGET_SUPPORTS_GOOGLE_RECORDER := false
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2340
+TARGET_SCREEN_WIDTH := 1080
+
+HAVOC_BUILD_TYPE := miuivendor
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_BRAND := Xiaomi

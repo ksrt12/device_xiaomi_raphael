@@ -16,10 +16,6 @@ $(call inherit-product-if-exists, vendor/xiaomi/raphael/raphael-vendor.mk)
 PRODUCT_TARGET_VNDK_VERSION := 29
 PRODUCT_EXTRA_VNDK_VERSIONS := 29
 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 2340
-TARGET_SCREEN_WIDTH := 1080
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/../translations \
