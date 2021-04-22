@@ -54,6 +54,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     BluetoothQti
 
+# Calculator
+PRODUCT_PACKAGES += ExactCalculator
+
 # Camera
 PRODUCT_PACKAGES += \
     Snap
