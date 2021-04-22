@@ -1,0 +1,37 @@
+#============= bluetooth ==============
+allow bluetooth incremental_prop:file read;
+
+#============= fsck ==============
+allow fsck self:capability kill;
+allow ueventd self:capability kill;
+
+#============= gmscore_app ==============
+allow gmscore_app bt_firmware_file:filesystem getattr;
+allow gmscore_app firmware_file:filesystem getattr;
+
+#============= hal_citsensorservice_xiaomi_default ==============
+allow hal_citsensorservice_xiaomi_default ion_device:chr_file open;
+
+#============= init ==============
+allow init bt_firmware_file:filesystem getattr;
+allow init debugfs:file write;
+allow init firmware_file:filesystem getattr;
+
+#============= isolated_app ==============
+allow isolated_app app_data_file:dir getattr;
+
+#============= permissioncontroller_app ==============
+allow permissioncontroller_app tethering_service:service_manager find;
+
+#============= ppp ==============
+allow ppp vendor_file:dir read;
+
+#============= system_app ==============
+allow system_app proc_pagetypeinfo:file read;
+allow system_app sysfs_zram:dir search;
+
+#============= vendor_init ==============
+allow vendor_init block_device:lnk_file setattr;
+allow vendor_init default_prop:file read;
+allow vendor_init device:chr_file getattr;
+allow vendor_init persist_debug_prop:file read;
