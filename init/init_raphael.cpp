@@ -16,6 +16,7 @@
 
 #include <android-base/logging.h>
 #include <android-base/properties.h>
+#include <string.h>
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
 #include <sys/sysinfo.h>
@@ -25,10 +26,9 @@
 using ::android::base::SetProperty;
 
 void property_override(char const prop[], char const value[]) {
-
     prop_info *pi;
 
-    pi = (prop_info*) __system_property_find(prop);
+    pi = (prop_info *)__system_property_find(prop);
     if (pi)
         __system_property_update(pi, value, strlen(value));
     else
@@ -75,7 +75,6 @@ void load_raphael() {
     property_override("ro.product.device", "raphael");
 }
 
-
 void vendor_load_properties() {
     std::string region = android::base::GetProperty("ro.boot.hwc", "");
 
@@ -88,7 +87,8 @@ void vendor_load_properties() {
     } else {
         LOG(ERROR) << __func__ << ": unexcepted region!";
     }
-    property_override("ro.build.fingerprint", "google/redfin/redfin:11/RQ3A.210805.001.A1/7474174:user/release-keys");
-    property_override("ro.build.description", "redfin-user 11 RQ3A.210805.001.A1 7474174 release-keys");
+
+    property_override("ro.build.fingerprint", "Xiaomi/raphael/raphael:10/QKQ1.190825.002/V12.0.3.0.QFKMIXM:user/release-keys");
+    property_override("ro.build.description", "raphael-user 10 QKQ1.190825.002 V12.0.3.0.QFKMIXM release-keys");
     load_dalvik_properties();
 }
