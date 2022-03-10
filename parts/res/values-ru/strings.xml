@@ -128,4 +128,8 @@
     <string name="always_on_camera_dialog_title">Диалог открытия камеры</string>
     <string name="always_on_camera_dialog_summary_on">Всегда спрашивать перед открытием</string>
     <string name="always_on_camera_dialog_summary_off">Спрашивать только при выключенном экране</string>
+
+    <!-- Raise to wake strings-->
+    <string name="raise_to_wake_gesture_title">Поднять для пробуждения</string>
+    <string name="raise_to_wake_gesture_summary">Пробуждение устройства вместо пульсаци уведомлений</string>
 </resources>
