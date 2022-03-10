@@ -73,12 +73,21 @@
     <string name="popup_led_title">Визуальные эффекты</string>
     <string name="popup_led_summary">Показывать анимацию при открытии и закрытии фронтальной камеры</string>
     <string name="popup_title">Эффекты фронтальной камеры</string>
+    <string name="popup_sound_title">Звуковые эффекты</string>
     <string name="popup_title_muqin">Ксилофон</string>
     <string name="popup_title_yingyan">Кондор</string>
     <string name="popup_title_mofa">Магия</string>
     <string name="popup_title_jijia">Механика</string>
     <string name="popup_title_chilun">Шестерня</string>
     <string name="popup_title_cangmen">Дверь каюты</string>
+    <string name="popup_sound_imperial_march">Star Wars© Имперский Марш</string>
+    <string name="popup_sound_lightsaber">Star Wars© Lightsaber</string>
+    <string name="popup_sound_throne_room">Star Wars© Throne Room</string>
+    <string name="popup_super_mario">Супер Марио</string>
+    <string name="popup_calibration_title">Калибровка</string>
+    <string name="popup_calibration_summary">Калибровка моторчика фронтальной камеры</string>
+    <string name="popup_calibration_warning_title">Калибровка моторчика</string>
+    <string name="popup_calibration_warning_text">Ненужное использование калибровки может привести к необратимому повреждению. Рекомендуется калибровать мотор всплывающей камеры только в том случае, если он не двигается должным образом или находится в неправильном положении!</string>
 
 
     <!-- Thermal Profiles -->
@@ -102,4 +111,21 @@
     <string name="touch_sensitivity_summary">Управляет чувствительностью при повторных нажатиях</string>
     <string name="touch_resistant_title">Область, устойчивая к прикосновениям</string>
     <string name="touch_resistant_summary">Снижает чувствительность по краям для предотвращения случайных прикосновений</string>
+
+    <!-- Popup camera strings -->
+    <string name="popup_camera_tip">Предупреждение</string>
+    <string name="popup_camera_takeback_failed_calibrate">Невозможно закрыть фронтальную камеру. Попробуйте откалибровать моторчик.</string>
+    <string name="popup_camera_popup_failed_calibrate">Невозможно открыть фронтальную камеру. Попробуйте откалибровать моторчик.</string>
+    <string name="popup_camera_calibrate_running">фронтальная камера не может быть использована во время калибровки.</string>
+    <string name="popup_camera_calibrate_now">Калибровка</string>
+    <string name="popup_camera_calibrate_failed">Невозможно откалибровать.</string>
+    <string name="popup_camera_calibrate_success">Успешно откалибровано. Теперь вы можете открыть фронтальную камеру.</string>
+
+    <!-- Popup camera dialog -->
+    <string name="popup_camera_dialog_message">Вы действительно хотите открыть фронтальную камеру?</string>
+    <string name="popup_camera_dialog_no">Нет</string>
+    <string name="popup_camera_dialog_raise">Да</string>
+    <string name="always_on_camera_dialog_title">Диалог открытия камеры</string>
+    <string name="always_on_camera_dialog_summary_on">Всегда спрашивать перед открытием</string>
+    <string name="always_on_camera_dialog_summary_off">Спрашивать только при выключенном экране</string>
 </resources>
